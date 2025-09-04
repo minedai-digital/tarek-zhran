@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tarek Zhran - Business Development & Digital Transformation Leader" />
+  <meta name="keywords" content="business development, digital transformation, healthcare, financial management" />
+  <meta name="author" content="Tarek Zhran" />
+  <title>Tarek Zhran - Business Development Leader</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Icons -->
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="images/profile.jpg" as="image" />
+  <link rel="preload" href="css/style.css" as="style" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <div class="logo-animation">
+          <span class="logo-text" data-en="MINEDAI" data-ar="ماينداي">MINEDAI</span>
+        </div>
+      </div>
+      <div class="loading-spinner"></div>
+      <p class="loading-text" data-en="Loading..." data-ar="جاري التحميل...">Loading...</p>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="#home" class="logo">
+        <div class="logo-icon">
+          <span class="logo-text" data-en="MINEDAI" data-ar="ماينداي">MINEDAI</span>
+        </div>
+        <div class="logo-content">
+          <span class="logo-name" data-en="Tarek Zhran" data-ar="طارق زهران">Tarek Zhran</span>
+          <span class="logo-subtitle" data-en="Business Development" data-ar="تطوير الأعمال">Business Development</span>
+        </div>
+      </a>
+      
+      <nav id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#home" class="nav-link" data-en="Home" data-ar="الرئيسية">
+              <span class="nav-icon">🏠</span>
+              <span class="nav-text">Home</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link" data-en="About" data-ar="عن طارق">
+              <span class="nav-icon">👤</span>
+              <span class="nav-text">About</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#experience" class="nav-link" data-en="Experience" data-ar="الخبرة">
+              <span class="nav-icon">💼</span>
+              <span class="nav-text">Experience</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#education" class="nav-link" data-en="Education" data-ar="التعليم">
+              <span class="nav-icon">🎓</span>
+              <span class="nav-text">Education</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#services" class="nav-link" data-en="Services" data-ar="الخدمات">
+              <span class="nav-icon">🛠️</span>
+              <span class="nav-text">Services</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#products" class="nav-link" data-en="Products" data-ar="المنتجات">
+              <span class="nav-icon">🛍️</span>
+              <span class="nav-text">Products</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#skills" class="nav-link" data-en="Skills" data-ar="المهارات">
+              <span class="nav-icon">⚡</span>
+              <span class="nav-text">Skills</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#cv" class="nav-link" data-en="CV" data-ar="السيرة الذاتية">
+              <span class="nav-icon">📄</span>
+              <span class="nav-text">CV</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" data-en="Contact" data-ar="تواصل معي">
+              <span class="nav-icon">📧</span>
+              <span class="nav-text">Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+     <div class="nav-controls">
+  <!-- Language Toggle Button -->
+  <button id="language-toggle" 
+          style="margin-left:auto;font-size:1.2rem;cursor:pointer;background:none;border:none;">
+    🌐
+  </button>
+
+  <!-- Notifications Toggle Button -->
+  <button id="enable-notifications" 
+          style="font-size:1.2rem;cursor:pointer;background:none;border:none;">
+    🔔
+  </button>
+
+  <!-- Mobile Menu Toggle -->
+  <button class="nav-toggle" aria-label="Toggle Navigation Menu">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+</div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-background">
+        <div class="hero-particles"></div>
+        <div class="hero-gradient"></div>
+      </div>
+      
+      <div class="hero-content">
+        <div class="hero-badge">
+          <div class="badge-icon">✨</div>
+          <span class="badge-text" data-en="Available for Opportunities" data-ar="متاح للفرص">Available for Opportunities</span>
+        </div>
+        
+        <h1 class="hero-headline" data-en="Business Development & Digital Transformation Leader" data-ar="قائد تطوير الأعمال والتحول الرقمي">
+          Business Development & Digital Transformation Leader
+        </h1>
+        
+        <p class="hero-subheadline" data-en="Driving operational excellence and digital innovation in healthcare and business." data-ar="قيادة التميز التشغيلي والابتكار الرقمي في الرعاية الصحية والأعمال.">
+          Driving operational excellence and digital innovation in healthcare and business.
+        </p>
+        
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-icon">📈</div>
+            <span class="stat-number">12+</span>
+            <span class="stat-label" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</span>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">👑</div>
+            <span class="stat-number">4</span>
+            <span class="stat-label" data-en="Leadership Roles" data-ar="مناصب قيادية">Leadership Roles</span>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">🏆</div>
+            <span class="stat-number">8</span>
+            <span class="stat-label" data-en="Certifications" data-ar="شهادات">Certifications</span>
+          </div>
+        </div>
+        
+        <div class="hero-actions">
+          <a href="#about" class="btn btn-primary">
+            <span class="btn-icon">👤</span>
+            <span class="btn-text" data-en="About Tarek" data-ar="عن طارق">About Tarek</span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <span class="btn-icon">📧</span>
+            <span class="btn-text" data-en="Get in Touch" data-ar="تواصل معي">Get in Touch</span>
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+        
+        <div class="scroll-indicator">
+          <div class="scroll-arrow"></div>
+          <span class="scroll-text" data-en="Scroll to explore" data-ar="اسحب للاستكشاف">Scroll to explore</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-icon">👤</span>
+            <span class="badge-text" data-en="About" data-ar="عن طارق">About</span>
+          </div>
+          <h2 class="section-title" data-en="About Tarek" data-ar="عن طارق">About Tarek</h2>
+          <p class="section-subtitle" data-en="A passionate professional dedicated to driving business excellence" data-ar="محترف شغوف مكرس لدفع التميز في الأعمال">
+            A passionate professional dedicated to driving business excellence
+          </p>
+        </div>
+        
+        <div class="about-container">
+          <div class="about-photo">
+            <div class="photo-frame">
+              <img src="images/profile.jpg" alt="Tarek Zhran" loading="lazy" />
+              <div class="photo-overlay">
+                <div class="overlay-content">
+                  <span class="overlay-number">12+</span>
+                  <span class="overlay-text" data-en="Years" data-ar="سنوات">Years</span>
+                  <span class="overlay-subtext" data-en="Experience" data-ar="خبرة">Experience</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="about-info">
+            <div class="bio-section">
+              <h3 class="bio-title" data-en="Professional Summary" data-ar="الملخص المهني">Professional Summary</h3>
+              <p class="bio" data-en="Aiming to secure a challenging position in business development, leveraging my extensive experience in process reengineering and improving business environments, particularly in the healthcare sector. Skilled in leading digital transformation initiatives at minimal cost to accelerate business operations, I seek to enhance professional and strategic growth through data analysis while contributing effectively to organizational success." data-ar="أهدف إلى الحصول على منصب تحدي في تطوير الأعمال، مستفيداً من خبرتي الواسعة في إعادة هندسة العمليات وتحسين البيئات التجارية، خاصة في قطاع الرعاية الصحية. ماهر في قيادة مبادرات التحول الرقمي بتكلفة منخفضة لتسريع العمليات التجارية، أسعى لتعزيز النمو المهني والاستراتيجي من خلال تحليل البيانات مع المساهمة بفعالية في نجاح المنظمة.">
+                Aiming to secure a challenging position in business development, leveraging my extensive experience in process reengineering and improving business environments, particularly in the healthcare sector. Skilled in leading digital transformation initiatives at minimal cost to accelerate business operations, I seek to enhance professional and strategic growth through data analysis while contributing effectively to organizational success.
+              </p>
+            </div>
+            
+            <div class="skills-section">
+              <h4 class="skills-title" data-en="Core Competencies" data-ar="الكفاءات الأساسية">Core Competencies</h4>
+              <div class="skills-grid">
+                <div class="skill-item" data-en="Business Development" data-ar="تطوير الأعمال">
+                  <span class="skill-icon">💼</span>
+                  <span class="skill-text">Business Development</span>
+                </div>
+                <div class="skill-item" data-en="Process Reengineering" data-ar="إعادة هندسة العمليات">
+                  <span class="skill-icon">⚙️</span>
+                  <span class="skill-text">Process Reengineering</span>
+                </div>
+                <div class="skill-item" data-en="Digital Transformation" data-ar="التحول الرقمي">
+                  <span class="skill-icon">🚀</span>
+                  <span class="skill-text">Digital Transformation</span>
+                </div>
+                <div class="skill-item" data-en="Data Analysis" data-ar="تحليل البيانات">
+                  <span class="skill-icon">📊</span>
+                  <span class="skill-text">Data Analysis</span>
+                </div>
+                <div class="skill-item" data-en="Financial Management" data-ar="الإدارة المالية">
+                  <span class="skill-icon">💰</span>
+                  <span class="skill-text">Financial Management</span>
+                </div>
+                <div class="skill-item" data-en="HR & Procurement" data-ar="الموارد البشرية والمشتريات">
+                  <span class="skill-icon">👥</span>
+                  <span class="skill-text">HR & Procurement</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="achievements-section">
+              <h4 class="achievements-title" data-en="Key Achievements" data-ar="الإنجازات الرئيسية">Key Achievements</h4>
+              <div class="achievements-grid">
+                <div class="achievement-card">
+                  <div class="achievement-icon">📈</div>
+                  <div class="achievement-content">
+                    <span class="achievement-number">40%</span>
+                    <span class="achievement-label" data-en="Operational Efficiency Improvement" data-ar="تحسين الكفاءة التشغيلية">Operational Efficiency Improvement</span>
+                  </div>
+                </div>
+                <div class="achievement-card">
+                  <div class="achievement-icon">💰</div>
+                  <div class="achievement-content">
+                    <span class="achievement-number">25%</span>
+                    <span class="achievement-label" data-en="Cost Reduction" data-ar="تخفيض التكاليف">Cost Reduction</span>
+                  </div>
+                </div>
+                <div class="achievement-card">
+                  <div class="achievement-icon">⚡</div>
+                  <div class="achievement-content">
+                    <span class="achievement-number">50%</span>
+                    <span class="achievement-label" data-en="Faster Recruitment" data-ar="توظيف أسرع">Faster Recruitment</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="personal-info">
+              <h4 class="personal-info-title" data-en="Personal Information" data-ar="المعلومات الشخصية">Personal Information</h4>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-icon">👤</span>
+                  <div class="info-content">
+                    <span class="info-label" data-en="Full Name:" data-ar="الاسم الكامل:">Full Name:</span>
+                    <span class="info-value">Tarek Mahmoud Zhran</span>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <span class="info-icon">📱</span>
+                  <div class="info-content">
+                    <span class="info-label" data-en="Phone:" data-ar="الهاتف:">Phone:</span>
+                    <a href="tel:+201009151540" class="info-value">+20 1009151540</a>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <span class="info-icon">📧</span>
+                  <div class="info-content">
+                    <span class="info-label" data-en="Email:" data-ar="البريد الإلكتروني:">Email:</span>
+                    <a href="mailto:contact@tarekzhran.com" class="info-value">contact@tarekzhran.com</a>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <span class="info-icon">📍</span>
+                  <div class="info-content">
+                    <span class="info-label" data-en="Location:" data-ar="الموقع:">Location:</span>
+                    <span class="info-value" data-en="Egypt" data-ar="مصر">Egypt</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-icon">🎓</span>
+            <span class="badge-text" data-en="Education" data-ar="التعليم">Education</span>
+          </div>
+          <h2 class="section-title" data-en="Education & Certifications" data-ar="التعليم والشهادات">Education & Certifications</h2>
+          <p class="section-subtitle" data-en="Academic background and professional certifications" data-ar="الخلفية الأكاديمية والشهادات المهنية">
+            Academic background and professional certifications
+          </p>
+        </div>
+        
+        <div class="education-grid">
+          <div class="education-card">
+            <div class="education-icon">🎓</div>
+            <div class="education-content">
+              <h3 class="education-title" data-en="MBA in Finance Management" data-ar="ماجستير إدارة الأعمال في الإدارة المالية">MBA in Finance Management</h3>
+              <p class="education-institution" data-en="Tanta University" data-ar="جامعة طنطا">Tanta University</p>
+              <p class="education-year">2023</p>
+              <div class="education-description" data-en="Advanced studies in financial management, strategic planning, and business administration." data-ar="دراسات متقدمة في الإدارة المالية والتخطيط الاستراتيجي وإدارة الأعمال.">
+                Advanced studies in financial management, strategic planning, and business administration.
+              </div>
+            </div>
+          </div>
+          
+          <div class="education-card">
+            <div class="education-icon">📚</div>
+            <div class="education-content">
+              <h3 class="education-title" data-en="Diploma in Business Administration" data-ar="دبلومة في إدارة الأعمال">Diploma in Business Administration</h3>
+              <p class="education-institution" data-en="Tanta University" data-ar="جامعة طنطا">Tanta University</p>
+              <p class="education-year">2018</p>
+              <div class="education-description" data-en="Comprehensive business administration and management principles." data-ar="مبادئ شاملة في إدارة الأعمال والإدارة.">
+                Comprehensive business administration and management principles.
+              </div>
+            </div>
+          </div>
+          
+          <div class="education-card">
+            <div class="education-icon">🎯</div>
+            <div class="education-content">
+              <h3 class="education-title" data-en="Bachelor's in Commerce" data-ar="بكالوريوس التجارة">Bachelor's in Commerce</h3>
+              <p class="education-institution" data-en="Tanta University" data-ar="جامعة طنطا">Tanta University</p>
+              <p class="education-year">2016</p>
+              <div class="education-description" data-en="Foundation in commerce, economics, and business fundamentals." data-ar="أساسيات التجارة والاقتصاد وأساسيات الأعمال.">
+                Foundation in commerce, economics, and business fundamentals.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-icon">💼</span>
+            <span class="badge-text" data-en="Experience" data-ar="الخبرة">Experience</span>
+          </div>
+          <h2 class="section-title" data-en="Professional Experience" data-ar="الخبرة المهنية">Professional Experience</h2>
+          <p class="section-subtitle" data-en="Proven track record in healthcare and business development" data-ar="سجل حافل في الرعاية الصحية وتطوير الأعمال">
+            Proven track record in healthcare and business development
+          </p>
+        </div>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-title" data-en="Financial and Administrative Controller" data-ar="مراقب مالي وإداري">Financial and Administrative Controller</h3>
+                <span class="timeline-period" data-en="2024 – Present" data-ar="2024 – الحالي">2024 – Present</span>
+              </div>
+              <div class="timeline-organization" data-en="Directorate of Health Affairs – Egyptian Ministry of Health" data-ar="مديرية الشؤون الصحية – وزارة الصحة المصرية">
+                Directorate of Health Affairs – Egyptian Ministry of Health
+              </div>
+              <ul class="timeline-achievements">
+                <li data-en="Oversee daily financial system operations and ensure compliance with regulations." data-ar="الإشراف على العمليات اليومية للنظام المالي وضمان الامتثال للوائح.">
+                  Oversee daily financial system operations and ensure compliance with regulations.
+                </li>
+                <li data-en="Prepare monthly and annual financial reports to support strategic decision-making." data-ar="إعداد التقارير المالية الشهرية والسنوية لدعم اتخاذ القرارات الاستراتيجية.">
+                  Prepare monthly and annual financial reports to support strategic decision-making.
+                </li>
+                <li data-en="Manage cash flow forecasting, payroll processing, and budget development." data-ar="إدارة توقعات التدفق النقدي ومعالجة الرواتب وتطوير الميزانية.">
+                  Manage cash flow forecasting, payroll processing, and budget development.
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-title" data-en="Budget Officer" data-ar="ضابط الميزانية">Budget Officer</h3>
+                <span class="timeline-period" data-en="2023 – 2024" data-ar="2023 – 2024">2023 – 2024</span>
+              </div>
+              <div class="timeline-organization" data-en="Samannud Health Administration – Egyptian Ministry of Health" data-ar="إدارة الصحة بسمنود – وزارة الصحة المصرية">
+                Samannud Health Administration – Egyptian Ministry of Health
+              </div>
+              <ul class="timeline-achievements">
+                <li data-en="Develop and manage budgets in line with financial guidelines and organizational objectives." data-ar="تطوير وإدارة الميزانيات وفقاً للمبادئ التوجيهية المالية والأهداف التنظيمية.">
+                  Develop and manage budgets in line with financial guidelines and organizational objectives.
+                </li>
+                <li data-en="Monitor expenditure patterns and financial performance to ensure adherence to plans." data-ar="مراقبة أنماط الإنفاق والأداء المالي لضمان الالتزام بالخطط.">
+                  Monitor expenditure patterns and financial performance to ensure adherence to plans.
+                </li>
+                <li data-en="Collaborate with department heads to forecast needs and allocate resources effectively." data-ar="التعاون مع رؤساء الأقسام لتوقع الاحتياجات وتخصيص الموارد بفعالية.">
+                  Collaborate with department heads to forecast needs and allocate resources effectively.
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-title" data-en="Human Resources Director" data-ar="مدير الموارد البشرية">Human Resources Director</h3>
+                <span class="timeline-period" data-en="2022 – 2023" data-ar="2022 – 2023">2022 – 2023</span>
+              </div>
+              <div class="timeline-organization" data-en="Samannud Health Administration – Egyptian Ministry of Health" data-ar="إدارة الصحة بسمنود – وزارة الصحة المصرية">
+                Samannud Health Administration – Egyptian Ministry of Health
+              </div>
+              <ul class="timeline-achievements">
+                <li data-en="Lead recruitment, onboarding, performance management, and employee development programs." data-ar="قيادة التوظيف والتوجيه وإدارة الأداء وبرامج تطوير الموظفين.">
+                  Lead recruitment, onboarding, performance management, and employee development programs.
+                </li>
+                <li data-en="Ensure compliance with labor laws and serve as a strategic HR advisor to senior management." data-ar="ضمان الامتثال لقوانين العمل والعمل كمستشار استراتيجي للموارد البشرية للإدارة العليا.">
+                  Ensure compliance with labor laws and serve as a strategic HR advisor to senior management.
+                </li>
+                <li data-en="Develop cost-effective electronic systems to improve internal operations." data-ar="تطوير أنظمة إلكترونية فعالة من حيث التكلفة لتحسين العمليات الداخلية.">
+                  Develop cost-effective electronic systems to improve internal operations.
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-title" data-en="Contracting and Procurement Specialist" data-ar="متخصص العقود والمشتريات">Contracting and Procurement Specialist</h3>
+                <span class="timeline-period" data-en="2021 – 2022" data-ar="2021 – 2022">2021 – 2022</span>
+              </div>
+              <div class="timeline-organization" data-en="Samannud Hospital – Egyptian Ministry of Health" data-ar="مستشفى سمنود – وزارة الصحة المصرية">
+                Samannud Hospital – Egyptian Ministry of Health
+              </div>
+              <ul class="timeline-achievements">
+                <li data-en="Manage the procurement process, including supplier sourcing, contract negotiation, and vendor selection." data-ar="إدارة عملية المشتريات، بما في ذلك البحث عن الموردين والتفاوض على العقود واختيار البائعين.">
+                  Manage the procurement process, including supplier sourcing, contract negotiation, and vendor selection.
+                </li>
+                <li data-en="Ensure procurement compliance with policies and regulations." data-ar="ضمان امتثال المشتريات للسياسات واللوائح.">
+                  Ensure procurement compliance with policies and regulations.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-icon">🛠️</span>
+            <span class="badge-text" data-en="Services" data-ar="الخدمات">Services</span>
+          </div>
+          <h2 class="section-title" data-en="Professional Services" data-ar="الخدمات المهنية">Professional Services</h2>
+          <p class="section-subtitle" data-en="Comprehensive business development and digital transformation solutions" data-ar="حلول شاملة لتطوير الأعمال والتحول الرقمي">
+            Comprehensive business development and digital transformation solutions
+          </p>
+        </div>
+        
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">💼</div>
+            <h3 class="service-title" data-en="Business Development" data-ar="تطوير الأعمال">Business Development</h3>
+            <p class="service-description" data-en="Strategic planning and execution to drive business growth and market expansion." data-ar="التخطيط الاستراتيجي والتنفيذ لدفع نمو الأعمال والتوسع في السوق.">
+              Strategic planning and execution to drive business growth and market expansion.
+            </p>
+            <ul class="service-features">
+              <li data-en="Market Analysis" data-ar="تحليل السوق">Market Analysis</li>
+              <li data-en="Growth Strategy" data-ar="استراتيجية النمو">Growth Strategy</li>
+              <li data-en="Partnership Development" data-ar="تطوير الشراكات">Partnership Development</li>
+            </ul>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3 class="service-title" data-en="Process Optimization" data-ar="تحسين العمليات">Process Optimization</h3>
+            <p class="service-description" data-en="Streamline operations and improve efficiency through process reengineering." data-ar="تبسيط العمليات وتحسين الكفاءة من خلال إعادة هندسة العمليات.">
+              Streamline operations and improve efficiency through process reengineering.
+            </p>
+            <ul class="service-features">
+              <li data-en="Workflow Analysis" data-ar="تحليل سير العمل">Workflow Analysis</li>
+              <li data-en="Efficiency Improvement" data-ar="تحسين الكفاءة">Efficiency Improvement</li>
+              <li data-en="Cost Reduction" data-ar="تخفيض التكاليف">Cost Reduction</li>
+            </ul>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">🚀</div>
+            <h3 class="service-title" data-en="Digital Transformation" data-ar="التحول الرقمي">Digital Transformation</h3>
+            <p class="service-description" data-en="Lead digital initiatives to modernize business operations and enhance customer experience." data-ar="قيادة المبادرات الرقمية لتحديث العمليات التجارية وتحسين تجربة العملاء.">
+              Lead digital initiatives to modernize business operations and enhance customer experience.
+            </p>
+            <ul class="service-features">
+              <li data-en="Technology Integration" data-ar="تكامل التقنيات">Technology Integration</li>
+              <li data-en="Digital Strategy" data-ar="الاستراتيجية الرقمية">Digital Strategy</li>
+              <li data-en="Change Management" data-ar="إدارة التغيير">Change Management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-icon">⚡</span>
+            <span class="badge-text" data-en="Skills" data-ar="المهارات">Skills</span>
+          </div>
+          <h2 class="section-title" data-en="Technical Skills" data-ar="المهارات التقنية">Technical Skills</h2>
+          <p class="section-subtitle" data-en="Expertise in various technologies and tools" data-ar="الخبرة في مختلف التقنيات والأدوات">
+            Expertise in various technologies and tools
+          </p>
+        </div>
+        
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3 class="category-title" data-en="Operating Systems" data-ar="أنظمة التشغيل">Operating Systems</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name" data-en="Microsoft Windows" data-ar="مايكروسوفت ويندوز">Microsoft Windows</span>
+                  <span class="skill-percentage">Advanced</span>
+                </div>
+                <div class="skill-level">
+                  <div class="skill-bar" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name" data-en="Apple macOS" data-ar="أبل ماك">Apple macOS</span>
+                  <span class="skill-percentage">Advanced</span>
+                </div>
+                <div class="skill-level">
+                  <div class="skill-bar" style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h3 class="category-title" data-en="Office Applications" data-ar="تطبيقات المكتب">Office Applications</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name" data-en="Microsoft Office Suite" data-ar="حزمة مايكروسوفت أوفيس">Microsoft Office Suite</span>
+                  <span class="skill-percentage">Advanced</span>
+                </div>
+                <div class="skill-level">
+                  <div class="skill-bar" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name" data-en="Excel VBA Programming" data-ar="برمجة إكسل في بي إيه">Excel VBA Programming</span>
+                  <span class="skill-percentage">Advanced</span>
+                </div>
+                <div class="skill-level">
+                  <div class="skill-bar" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name" data-en="Google Sheets" data-ar="جوجل شيتس">Google Sheets</span>
+                  <span class="skill-percentage">Advanced</span>
+                </div>
+                <div class="skill-level">
+                  <div class="skill-bar" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h3 class="category-title" data-en="Web Technologies" data-ar="تقنيات الويب">Web Technologies</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name" data-en="HTML, CSS, JavaScript" data-ar="إتش تي إم إل، سي إس إس، جافاسكريبت">HTML, CSS, JavaScript</span>
+                  <span class="skill-percentage">Intermediate</span>
+                </div>
+                <div class="skill-level">
+                  <div class="skill-bar" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name" data-en="Internet Browsing Tools" data-ar="أدوات تصفح الإنترنت">Internet Browsing Tools</span>
+                  <span class="skill-percentage">Advanced</span>
+                </div>
+                <div class="skill-level">
+                  <div class="skill-bar" style="width: 95%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h3 class="category-title" data-en="Other Skills" data-ar="مهارات أخرى">Other Skills</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name" data-en="High Computer Typing Speed" data-ar="سرعة عالية في الكتابة على الحاسوب">High Computer Typing Speed</span>
+                  <span class="skill-percentage">Advanced</span>
+                </div>
+                <div class="skill-level">
+                  <div class="skill-bar" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</span>
+                  <span class="skill-percentage">Advanced</span>
+                </div>
+                <div class="skill-level">
+                  <div class="skill-bar" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+<section id="products" class="products section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">
+        <span class="badge-icon">🛍️</span>
+        <span class="badge-text" data-en="Products" data-ar="المنتجات">Products</span>
+      </div>
+      <h2 class="section-title" data-en="Digital Products & Services" data-ar="المنتجات والخدمات الرقمية">
+        Digital Products & Services
+      </h2>
+      <p class="section-subtitle" data-en="Professional digital solutions and consulting services"
+        data-ar="حلول رقمية مهنية وخدمات استشارية">
+        Professional digital solutions and consulting services
+      </p>
+    </div>
+
+  <div class="products-grid"></div>
+  </div>
+</section>
+
+
+    <!-- CV Section -->
+    <section id="cv" class="cv section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-icon">📄</span>
+            <span class="badge-text" data-en="CV" data-ar="السيرة الذاتية">CV</span>
+          </div>
+          <h2 class="section-title" data-en="Download CV" data-ar="تحميل السيرة الذاتية">Download CV</h2>
+          <p class="section-subtitle" data-en="Get my complete professional resume" data-ar="احصل على سيرتي الذاتية الكاملة">
+            Get my complete professional resume
+          </p>
+        </div>
+        
+        <div class="cv-container">
+          <div class="cv-card">
+            <div class="cv-icon">📄</div>
+            <div class="cv-content">
+              <h3 class="cv-title" data-en="Professional CV" data-ar="السيرة الذاتية المهنية">Professional CV</h3>
+              <p class="cv-description" data-en="Download my comprehensive CV in PDF format for detailed information about my experience, education, and skills." data-ar="قم بتحميل سيرتي الذاتية الشاملة بصيغة PDF للحصول على معلومات مفصلة عن خبرتي وتعليمي ومهاراتي.">
+                Download my comprehensive CV in PDF format for detailed information about my experience, education, and skills.
+              </p>
+              <div class="cv-actions">
+                <a href="assets/cv.pdf" download class="btn btn-primary">
+                  <span class="btn-icon">📥</span>
+                  <span class="btn-text" data-en="Download CV" data-ar="تحميل السيرة الذاتية">Download CV</span>
+                  <span class="btn-arrow">→</span>
+                </a>
+                <a href="assets/cv.pdf" target="_blank" class="btn btn-secondary">
+                  <span class="btn-icon">👁️</span>
+                  <span class="btn-text" data-en="View CV" data-ar="عرض السيرة الذاتية">View CV</span>
+                  <span class="btn-arrow">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-icon">📧</span>
+            <span class="badge-text" data-en="Contact" data-ar="تواصل معي">Contact</span>
+          </div>
+          <h2 class="section-title" data-en="Get in Touch" data-ar="تواصل معي">Get in Touch</h2>
+          <p class="section-subtitle" data-en="Let's discuss how we can work together" data-ar="دعنا نناقش كيف يمكننا العمل معاً">
+            Let's discuss how we can work together
+          </p>
+        </div>
+        
+        <div class="contact-container">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div class="contact-details">
+                <h4 class="contact-label" data-en="Email" data-ar="البريد الإلكتروني">Email</h4>
+                <a href="mailto:contact@tarekzhran.com" class="contact-value">contact@tarekzhran.com</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📱</div>
+              <div class="contact-details">
+                <h4 class="contact-label" data-en="Phone" data-ar="الهاتف">Phone</h4>
+                <a href="tel:+201009151540" class="contact-value">+20 1009151540</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-details">
+                <h4 class="contact-label" data-en="Location" data-ar="الموقع">Location</h4>
+                <span class="contact-value" data-en="Egypt" data-ar="مصر">Egypt</span>
+              </div>
+            </div>
+            
+            <div class="social-links">
+              <h4 class="social-title" data-en="Connect with me" data-ar="تواصل معي">Connect with me</h4>
+              <div class="social-icons">
+                <a href="https://linkedin.com/in/tarekzhran" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+                  <img src="assets/linkedin.svg" alt="LinkedIn" />
+                </a>
+                <a href="https://github.com/tarekzhran" target="_blank" rel="noopener" aria-label="GitHub" class="social-link">
+                  <img src="assets/github.svg" alt="GitHub" />
+                </a>
+                <a href="https://twitter.com/tarekzhran" target="_blank" rel="noopener" aria-label="Twitter" class="social-link">
+                  <img src="assets/twitter.svg" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <h3 class="form-title" data-en="Send a Message" data-ar="أرسل رسالة">Send a Message</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" name="name" id="name" placeholder="Your Name" required />
+                <label for="name" data-en="Your Name" data-ar="اسمك">Your Name</label>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" name="email" id="email" placeholder="Your Email" required />
+                <label for="email" data-en="Your Email" data-ar="بريدك الإلكتروني">Your Email</label>
+              </div>
+              
+              <div class="form-group">
+                <input type="text" name="subject" id="subject" placeholder="Subject" required />
+                <label for="subject" data-en="Subject" data-ar="الموضوع">Subject</label>
+              </div>
+              
+              <div class="form-group">
+                <textarea name="message" id="message" placeholder="Your Message" rows="5" required></textarea>
+                <label for="message" data-en="Your Message" data-ar="رسالتك">Your Message</label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary">
+                <span class="btn-icon">📧</span>
+                <span class="btn-text" data-en="Send Message" data-ar="أرسل الرسالة">Send Message</span>
+                <span class="btn-arrow">→</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <div class="logo-icon">
+              <span class="logo-text" data-en="TZ" data-ar="طز">TZ</span>
+            </div>
+            <div class="logo-content">
+              <h3 class="footer-title" data-en="Tarek Zhran" data-ar="طارق زهران">Tarek Zhran</h3>
+              <p class="footer-description" data-en="Business Development & Digital Transformation Leader" data-ar="قائد تطوير الأعمال والتحول الرقمي">
+                Business Development & Digital Transformation Leader
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="footer-subtitle" data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#about" data-en="About" data-ar="عن طارق">About</a></li>
+            <li><a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a></li>
+            <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
+            <li><a href="#products" data-en="Products" data-ar="المنتجات">Products</a></li>
+            <li><a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a></li>
+            <li><a href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="footer-subtitle" data-en="Connect" data-ar="تواصل">Connect</h4>
+          <div class="footer-social">
+            <a href="https://linkedin.com/in/tarekzhran" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+              <img src="assets/linkedin.svg" alt="LinkedIn" />
+            </a>
+            <a href="https://github.com/tarekzhran" target="_blank" rel="noopener" aria-label="GitHub" class="social-link">
+              <img src="assets/github.svg" alt="GitHub" />
+            </a>
+            <a href="https://twitter.com/tarekzhran" target="_blank" rel="noopener" aria-label="Twitter" class="social-link">
+              <img src="assets/twitter.svg" alt="Twitter" />
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="copyright" data-en="© 2025 Tarek Zhran. All rights reserved." data-ar="© 2025 طارق زهران. جميع الحقوق محفوظة.">
+          © 2025 Tarek Zhran. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <span class="arrow-up">↑</span>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
