@@ -504,6 +504,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Enhanced particle system for hero section
   const particlesContainer = document.getElementById('hero-particles');
   if (particlesContainer) {
+    // Clear existing particles
+    particlesContainer.innerHTML = '';
+    
     // Create particles
     for (let i = 0; i < 20; i++) {
       const particle = document.createElement('div');
@@ -571,6 +574,15 @@ document.addEventListener('DOMContentLoaded', function() {
       this.classList.remove('pressed');
     });
   });
+  
+  // Ensure WhatsApp button works correctly
+  const whatsappButton = document.querySelector('.whatsapp-float');
+  if (whatsappButton) {
+    whatsappButton.addEventListener('click', function(e) {
+      // Allow default behavior for WhatsApp link
+      console.log('WhatsApp button clicked');
+    });
+  }
 });
 
 // Add service worker for PWA support
@@ -585,3 +597,28 @@ if ('serviceWorker' in navigator) {
       });
   });
 }
+
+// Prevent scrolling on mobile when menu is open
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      if (navMenu.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('open')) {
+        navMenu.classList.remove('open');
+        navToggle.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+});

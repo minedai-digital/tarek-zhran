@@ -282,6 +282,7 @@
     padding: 2rem 0;
     transition: left 0.3s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: var(--z-dropdown);
   }
   
   .nav-list.open {
@@ -530,6 +531,15 @@
   .footer-social {
     justify-content: center;
   }
+  
+  /* WhatsApp Button */
+  .whatsapp-float {
+    bottom: 70px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
 }
 
 /* Small Mobile (iPhone SE, small Android) */
@@ -572,6 +582,15 @@
   .btn {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
+  }
+  
+  /* WhatsApp Button */
+  .whatsapp-float {
+    bottom: 65px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 }
 
@@ -748,6 +767,15 @@
   .footer-description {
     font-size: 0.9rem;
   }
+  
+  /* WhatsApp Button */
+  .whatsapp-float {
+    bottom: 60px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
 }
 
 /* Landscape Mobile */
@@ -784,6 +812,14 @@
     height: calc(100vh - 60px);
     top: 60px;
   }
+  
+  /* WhatsApp Button */
+  .whatsapp-float {
+    bottom: 20px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* High DPI Displays */
@@ -805,7 +841,8 @@
   .hero-actions,
   .contact-form,
   .back-to-top,
-  .loading-screen {
+  .loading-screen,
+  .whatsapp-float {
     display: none !important;
   }
   
@@ -942,4 +979,77 @@
   .contact-item {
     padding: 1.5rem;
   }
-} 
+  
+  /* WhatsApp Button */
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+/* iPad Specific Optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-headline {
+    font-size: 2.5rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .timeline-item {
+    padding: 1.5rem;
+  }
+  
+  /* WhatsApp Button */
+  .whatsapp-float {
+    bottom: 80px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Large Tablet Specific */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .hero-headline {
+    font-size: 2.8rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* WhatsApp Button */
+  .whatsapp-float {
+    bottom: 90px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* Device Height Optimizations */
+@media (max-height: 700px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+  
+  .hero-content {
+    padding: 2rem 0;
+  }
+}
+
+@media (max-height: 600px) {
+  .hero-stats {
+    margin-bottom: 1rem;
+  }
+  
+  .hero-actions {
+    margin-top: 1rem;
+  }
+}
