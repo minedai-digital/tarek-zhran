@@ -559,6 +559,18 @@ document.addEventListener('DOMContentLoaded', function() {
     el.style.transitionDelay = `${index * 0.1}s`;
   });
   
+  // Enhanced timeline interactions
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  timelineItems.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-5px)';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+  
   // Enhanced button effects
   const buttons = document.querySelectorAll('.btn');
   buttons.forEach(button => {
