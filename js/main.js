@@ -67,6 +67,7 @@ class NavigationManager {
     this.setupScrollEffects();
     this.setupBackToTop();
     this.setupActiveNavigation();
+    this.setupEnhancedEffects();
   }
 
   setupSmoothScroll() {
@@ -199,178 +200,37 @@ class NavigationManager {
 
     window.addEventListener('scroll', throttle(updateActiveNav, 100));
   }
-}
 
-// Enhanced Animation Manager
-class AnimationManager {
-  constructor() {
-    this.observerOptions = {
+  setupEnhancedEffects() {
+    // Enhanced scroll animations
+    const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
     };
-    this.init();
-  }
-
-  init() {
-    this.setupIntersectionObserver();
-    this.setupScrollAnimations();
-    this.setupHoverEffects();
-    this.setupParticleEffects();
-  }
-
-  setupIntersectionObserver() {
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           
-          // Animate children with staggered delay
-          const children = entry.target.querySelectorAll('.stagger-item');
-          children.forEach((child, index) => {
+          // Add staggered animations for child elements
+          const staggerItems = entry.target.querySelectorAll('.stagger-item, .skill-item, .timeline-item, .skill-category');
+          staggerItems.forEach((item, index) => {
             setTimeout(() => {
-              child.classList.add('visible');
+              item.classList.add('visible');
             }, index * 100);
           });
         }
       });
-    }, this.observerOptions);
-
-    // Observe all sections and timeline items
-    document.querySelectorAll('.section, .timeline-item, .education-card, .achievement-card, .contact-item').forEach(el => {
+    }, observerOptions);
+    
+    // Observe sections
+    document.querySelectorAll('.section, .skill-item, .timeline-item, .skill-category').forEach(el => {
       observer.observe(el);
     });
-  }
-
-  setupScrollAnimations() {
-    // Add stagger-item class to elements that should animate
-    document.querySelectorAll('.achievement-card, .skill-item, .contact-item, .education-card').forEach(el => {
-      el.classList.add('stagger-item');
-    });
-  }
-
-  setupHoverEffects() {
-    // Add hover effects to cards
-    document.querySelectorAll('.achievement-card, .contact-item, .skill-item, .education-card').forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-5px) scale(1.02)';
-        this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
-      });
-      
-      card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-        this.style.boxShadow = '0 8px 32px rgba(0,0,0,0.08)';
-      });
-    });
-  }
-
-  setupParticleEffects() {
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-      const particlesContainer = document.querySelector('.hero-particles');
-      if (particlesContainer) {
-        // Create particles
-        for (let i = 0; i < 20; i++) {
-          const particle = document.createElement('div');
-          particle.className = 'particle';
-          particle.style.left = Math.random() * 100 + '%';
-          particle.style.animationDelay = Math.random() * 6 + 's';
-          particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-          particlesContainer.appendChild(particle);
-        }
-      }
-    }
-  }
-}
-
-// Enhanced Contact Form Manager
-class ContactFormManager {
-  constructor() {
-    this.form = document.getElementById('contactForm');
-    this.googleSheets = new GoogleSheetsManager();
-    this.init();
-  }
-
-  init() {
-    if (this.form) {
-      this.setupFormValidation();
-      this.setupFormSubmission();
-      this.setupFloatingLabels();
-      this.setupFormAnimations();
-    }
-  }
-
-  setupFormValidation() {
-    const inputs = this.form.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-      input.addEventListener('blur', () => this.validateField(input));
-      input.addEventListener('input', () => this.clearFieldError(input));
-    });
-  }
-
-  validateField(field) {
-    const value = field.value.trim();
-    let isValid = true;
-    let errorMessage = '';
-
-    switch (field.type) {
-      case 'email':
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) {
-          isValid = false;
-          errorMessage = 'Please enter a valid email address';
-        }
-        break;
-      case 'text':
-        if (value.length < 2) {
-          isValid = false;
-          errorMessage = 'This field is required';
-        }
-        break;
-      case 'textarea':
-        if (value.length < 10) {
-          isValid = false;
-          errorMessage = 'Message must be at least 10 characters long';
-        }
-        break;
-    }
-
-    if (!isValid) {
-      this.showFieldError(field, errorMessage);
-    } else {
-      this.clearFieldError(field);
-    }
-
-    return isValid;
-  }
-
-  showFieldError(field, message) {
-    this.clearFieldError(field);
-    field.classList.add('error');
     
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'field-error';
-    errorDiv.textContent = message;
-    errorDiv.style.cssText = `
-      color: var(--error);
-      font-size: 0.8rem;
-      margin-top: 0.25rem;
-      display: block;
-      animation: fadeInUp 0.3s ease-out;
-    `;
-    
-    field.parentNode.appendChild(errorDiv);
-  }
-
-  clearFieldError(field) {
-    field.classList.remove('error');
-    const errorDiv = field.parentNode.querySelector('.field-error');
-    if (errorDiv) {
-      errorDiv.remove();
-    }
-  }
-
-  setupFloatingLabels() {
-    const formGroups = this.form.querySelectorAll('.form-group');
+    // Enhanced form interactions
+    const formGroups = document.querySelectorAll('.form-group');
     formGroups.forEach(group => {
       const input = group.querySelector('input, textarea');
       const label = group.querySelector('label');
@@ -386,225 +246,240 @@ class ContactFormManager {
           }
         });
         
-        // Check if input has value on load
+        // Check if input already has value
         if (input.value) {
           label.classList.add('active');
         }
       }
     });
   }
+}
 
-  setupFormAnimations() {
-    const formGroups = this.form.querySelectorAll('.form-group');
-    formGroups.forEach((group, index) => {
-      group.style.animationDelay = `${index * 0.1}s`;
-      group.classList.add('fade-in-child');
-    });
+// Enhanced Form Manager
+class FormManager {
+  constructor() {
+    this.contactForm = document.getElementById('contactForm');
+    this.googleSheets = new GoogleSheetsManager();
+    this.init();
   }
 
-  setupFormSubmission() {
-    this.form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      // Validate all fields
-      const inputs = this.form.querySelectorAll('input, textarea');
-      let isValid = true;
-      
-      inputs.forEach(input => {
-        if (!this.validateField(input)) {
-          isValid = false;
-        }
+  init() {
+    if (this.contactForm) {
+      this.contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        this.handleSubmit();
       });
+    }
+  }
 
-      if (!isValid) {
-        this.showNotification('Please fix the errors above', 'error');
-        return;
-      }
-
-      // Get form data
-      const formData = {
-        name: this.form.querySelector('[name="name"]').value,
-        email: this.form.querySelector('[name="email"]').value,
-        subject: this.form.querySelector('[name="subject"]').value,
-        message: this.form.querySelector('[name="message"]').value
-      };
-
-      // Show loading state
-      const submitBtn = this.form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<span class="loading"></span> Sending...';
-      submitBtn.disabled = true;
-
-      try {
-        // Submit to Google Sheets
-        const result = await this.googleSheets.submitToGoogleSheets(formData);
+  async handleSubmit() {
+    const formData = new FormData(this.contactForm);
+    const data = {};
+    
+    for (let [key, value] of formData.entries()) {
+      data[key] = value;
+    }
+    
+    // Show loading state
+    const submitBtn = this.contactForm.querySelector('.submit-btn');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<div class="loading"></div>';
+    submitBtn.disabled = true;
+    
+    try {
+      // Submit to Google Sheets
+      const result = await this.googleSheets.submitToGoogleSheets(data);
+      
+      if (result.success) {
+        // Show success notification
+        NotificationManager.showNotification('Success', 'Your message has been sent successfully!', 'success');
+        this.contactForm.reset();
         
-        if (result.success) {
-          this.showNotification('Message sent successfully!', 'success');
-          this.form.reset();
-          
-          // Reset floating labels
-          const labels = this.form.querySelectorAll('label');
-          labels.forEach(label => label.classList.remove('active'));
-        } else {
-          this.showNotification('Failed to send message. Please try again.', 'error');
-        }
-      } catch (error) {
-        this.showNotification('An error occurred. Please try again.', 'error');
-      } finally {
+        // Reset form labels
+        const labels = this.contactForm.querySelectorAll('label');
+        labels.forEach(label => {
+          label.classList.remove('active');
+        });
+      } else {
+        // Show error notification
+        NotificationManager.showNotification('Error', 'Failed to send your message. Please try again.', 'error');
+      }
+    } catch (error) {
+      // Show error notification
+      NotificationManager.showNotification('Error', 'An unexpected error occurred. Please try again.', 'error');
+    } finally {
+      // Reset button
+      setTimeout(() => {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
-      }
-    });
+      }, 1000);
+    }
+  }
+}
+
+// Enhanced Notification Manager
+class NotificationManager {
+  constructor() {
+    this.container = document.getElementById('notifications');
+    this.badge = document.getElementById('notification-badge');
+    this.notificationCount = 0;
+    this.init();
   }
 
-  showNotification(message, type = 'info') {
+  init() {
+    if (!this.container) {
+      this.container = document.createElement('div');
+      this.container.className = 'notifications';
+      this.container.id = 'notifications';
+      document.body.appendChild(this.container);
+    }
+    
+    if (!this.badge) {
+      this.badge = document.createElement('span');
+      this.badge.className = 'notification-badge';
+      this.badge.id = 'notification-badge';
+      this.badge.textContent = '0';
+      
+      const notificationToggle = document.getElementById('enable-notifications');
+      if (notificationToggle) {
+        notificationToggle.appendChild(this.badge);
+      }
+    }
+  }
+
+  static showNotification(title, message, type = 'info') {
+    const container = document.getElementById('notifications') || document.querySelector('.notifications');
+    if (!container) return;
+    
     const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
+    notification.className = `notification ${type}`;
+    
+    const icon = type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️';
+    
     notification.innerHTML = `
+      <div class="notification-icon">${icon}</div>
       <div class="notification-content">
-        <span class="notification-message">${message}</span>
-        <button class="notification-close">&times;</button>
+        <h4 class="notification-title">${title}</h4>
+        <p class="notification-message">${message}</p>
       </div>
+      <button class="notification-close">&times;</button>
     `;
     
-    notification.style.cssText = `
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: ${type === 'success' ? 'var(--success)' : type === 'error' ? 'var(--error)' : 'var(--accent)'};
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      z-index: 10000;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      max-width: 300px;
-    `;
+    container.appendChild(notification);
     
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-      notification.style.transform = 'translateX(0)';
-    }, 100);
+    // Update badge
+    const badge = document.getElementById('notification-badge');
+    if (badge) {
+      const count = parseInt(badge.textContent) || 0;
+      badge.textContent = count + 1;
+    }
     
     // Auto remove after 5 seconds
     setTimeout(() => {
-      notification.style.transform = 'translateX(100%)';
-      setTimeout(() => notification.remove(), 300);
+      notification.classList.add('hiding');
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 300);
     }, 5000);
     
     // Close button
-    notification.querySelector('.notification-close').addEventListener('click', () => {
-      notification.style.transform = 'translateX(100%)';
-      setTimeout(() => notification.remove(), 300);
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => {
+      notification.classList.add('hiding');
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 300);
     });
   }
 }
 
-// Enhanced Loading Screen Manager
-class LoadingScreenManager {
+// Enhanced Language Manager
+class LanguageManager {
   constructor() {
-    this.loadingScreen = document.getElementById('loading-screen');
+    this.currentLanguage = 'en';
+    this.toggleButton = document.getElementById('language-toggle');
     this.init();
   }
 
   init() {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        this.hideLoadingScreen();
-      }, 1500);
-    });
-  }
-
-  hideLoadingScreen() {
-    if (this.loadingScreen) {
-      this.loadingScreen.classList.add('hidden');
-      setTimeout(() => {
-        this.loadingScreen.style.display = 'none';
-      }, 500);
+    // Check for saved language preference
+    const savedLang = localStorage.getItem('language');
+    if (savedLang) {
+      this.currentLanguage = savedLang;
     }
-  }
-}
-
-// Language Toggle
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById("language-toggle");
-  let currentLang = "en";
-
-  function translatePage(lang) {
-    document.querySelectorAll("[data-en]").forEach(el => {
-      el.textContent = el.dataset[lang];
-    });
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-    document.body.classList.toggle("rtl", lang === "ar");
-  }
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
-      currentLang = currentLang === "en" ? "ar" : "en";
-      translatePage(currentLang);
-    });
-  }
-
-  translatePage(currentLang);
-});
-
-// WhatsApp Button Manager
-class WhatsAppButtonManager {
-  constructor() {
-    this.phoneNumber = '201020135203'; // Egyptian WhatsApp number
-    this.init();
-  }
-
-  init() {
-    this.setupWhatsAppButtons();
-  }
-
-  setupWhatsAppButtons() {
-    const whatsappButtons = document.querySelectorAll('.whatsapp-btn');
     
-    whatsappButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Get the product title from the card
-        const productCard = button.closest('.product-card');
-        const productTitle = productCard.querySelector('.product-title').textContent;
-        
-        // Create WhatsApp message
-        const message = this.createWhatsAppMessage(productTitle);
-        
-        // Open WhatsApp with the message
-        const whatsappUrl = `https://wa.me/${this.phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    // Set initial language
+    this.setLanguage(this.currentLanguage);
+    
+    // Setup toggle button
+    if (this.toggleButton) {
+      this.toggleButton.addEventListener('click', () => {
+        this.toggleLanguage();
       });
-    });
+    }
   }
 
-  createWhatsAppMessage(productTitle) {
-    const currentLang = localStorage.getItem('siteLang') || 'en';
+  toggleLanguage() {
+    this.currentLanguage = this.currentLanguage === 'en' ? 'ar' : 'en';
+    this.setLanguage(this.currentLanguage);
+    localStorage.setItem('language', this.currentLanguage);
+  }
+
+  setLanguage(lang) {
+    this.currentLanguage = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     
-    if (currentLang === 'ar') {
-      return `مرحباً، أنا مهتم بشراء منتج: ${productTitle}
-
-أود معرفة المزيد من التفاصيل حول هذا المنتج والخطوات التالية للشراء.
-
-شكراً لك!`;
-    } else {
-      return `Hello, I'm interested in purchasing: ${productTitle}
-
-I would like to know more details about this product and the next steps for purchase.
-
-Thank you!`;
-    }
+    // Update all elements with data attributes
+    const elements = document.querySelectorAll('[data-en], [data-ar]');
+    elements.forEach(element => {
+      element.textContent = element.getAttribute(`data-${lang}`);
+    });
+    
+    // Update placeholder texts
+    const inputs = document.querySelectorAll('input[placeholder-en], input[placeholder-ar], textarea[placeholder-en], textarea[placeholder-ar]');
+    inputs.forEach(input => {
+      input.placeholder = input.getAttribute(`placeholder-${lang}`);
+    });
   }
 }
 
-// Utility functions
-const throttle = (func, limit) => {
+// Enhanced Theme Manager
+class ThemeManager {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      this.setTheme(savedTheme);
+    } else {
+      // Check system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      this.setTheme(prefersDark ? 'dark' : 'light');
+    }
+  }
+
+  setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }
+
+  toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    this.setTheme(newTheme);
+  }
+}
+
+// Utility function for throttling
+function throttle(func, limit) {
   let inThrottle;
   return function() {
     const args = arguments;
@@ -615,254 +490,98 @@ const throttle = (func, limit) => {
       setTimeout(() => inThrottle = false, limit);
     }
   };
-};
-
-// Initialize everything when DOM is loaded
-// Register Service Worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/js/sw.js')
-      .then(registration => {
-        console.log('ServiceWorker registration successful:', registration.scope);
-      })
-      .catch(err => {
-        console.log('ServiceWorker registration failed:', err);
-      });
-  });
 }
 
-// Main initialization when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM loaded, initializing managers...');
+// Initialize all managers when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize managers
+  const navigationManager = new NavigationManager();
+  const formManager = new FormManager();
+  const languageManager = new LanguageManager();
+  const themeManager = new ThemeManager();
+  const notificationManager = new NotificationManager();
   
-  // ترجمة عبر الإنترنت باستخدام زر الترجمة (Google Translate API)
-  function translatePageOnline(targetLang) {
-    const elements = document.querySelectorAll('[data-en], [data-ar]');
-    elements.forEach(el => {
-      let text = el.getAttribute(targetLang === 'ar' ? 'data-ar' : 'data-en');
-      if (text) {
-        el.textContent = text;
+  // Enhanced particle system for hero section
+  const particlesContainer = document.getElementById('hero-particles');
+  if (particlesContainer) {
+    // Create particles
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 5 + 's';
+      particle.style.width = (Math.random() * 4 + 2) + 'px';
+      particle.style.height = particle.style.width;
+      particle.style.opacity = Math.random() * 0.7 + 0.3;
+      particlesContainer.appendChild(particle);
+    }
+  }
+  
+  // Enhanced loading screen
+  const loadingScreen = document.getElementById('loading-screen');
+  if (loadingScreen) {
+    setTimeout(() => {
+      loadingScreen.classList.add('hidden');
+    }, 1500);
+  }
+  
+  // Add scroll animations to sections
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(section => {
+    section.classList.add('section-entrance');
+  });
+  
+  // Intersection Observer for animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
     });
-    document.documentElement.dir = (targetLang === 'ar') ? 'rtl' : 'ltr';
-    localStorage.setItem('siteLang', targetLang);
-  }
-
-  window.translatePageOnline = translatePageOnline;
+  }, observerOptions);
   
-  // Initialize all managers with error handling
-  try {
-    // Navigation
-    const navigationManager = new NavigationManager();
-    console.log('Navigation Manager initialized');
-    
-    // Contact Form
-    const contactFormManager = new ContactFormManager();
-    console.log('Contact Form Manager initialized');
-    
-    // Animations
-    const animationManager = new AnimationManager();
-    console.log('Animation Manager initialized');
-    
-    // Loading Screen
-    const loadingScreenManager = new LoadingScreenManager();
-    console.log('Loading Screen Manager initialized');
-    
-    // Language Toggle مع ترجمة عبر الإنترنت
-    const langToggle = document.getElementById('lang-toggle');
-    const langOptions = document.querySelectorAll('.lang-option');
-    if (langToggle && langOptions.length) {
-      langOptions.forEach(option => {
-        option.addEventListener('click', (e) => {
-          e.preventDefault();
-          const lang = option.getAttribute('data-lang');
-          window.translatePageOnline(lang);
-        });
-      });
-      // تفعيل اللغة المحفوظة عند التحميل
-      const savedLang = localStorage.getItem('siteLang') || 'en';
-      window.translatePageOnline(savedLang);
-    }
-    
-    // WhatsApp Button
-    const whatsappButtonManager = new WhatsAppButtonManager();
-    console.log('WhatsApp Button Manager initialized');
-  } catch (error) {
-    console.error('Error initializing managers:', error);
-  }
+  sections.forEach(section => {
+    observer.observe(section);
+  });
   
-  console.log('All managers initialized successfully');
-
-  // Performance optimization
-  window.addEventListener('load', () => {
-    // Register for push notifications if supported
-    if ('Notification' in window) {
-      Notification.requestPermission();
-    }
-    
-    // Preload critical images
-    const criticalImages = [
-      'images/profile.jpg',
-      'images/hero.jpg'
-    ];
-    
-    // Load images with Priority Hints
-    criticalImages.forEach(src => {
-      const img = new Image();
-      img.src = src;
-      img.fetchPriority = "high";
-      img.loading = "eager";
+  // Add entrance animations to elements
+  const animateElements = document.querySelectorAll('.entrance-animation');
+  animateElements.forEach((el, index) => {
+    el.style.transitionDelay = `${index * 0.1}s`;
+  });
+  
+  // Enhanced button effects
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(button => {
+    button.addEventListener('mousedown', function() {
+      this.classList.add('pressed');
     });
     
-    // Remove loading screen class
-    document.body.classList.remove('loading');
-    
-    // Enable offline functionality warning
-    window.addEventListener('offline', () => {
-      showNotification('You are now offline. Some features may be limited.', 'warning');
+    button.addEventListener('mouseup', function() {
+      this.classList.remove('pressed');
     });
     
-    window.addEventListener('online', () => {
-      showNotification('You are back online!', 'success');
+    button.addEventListener('mouseleave', function() {
+      this.classList.remove('pressed');
     });
   });
 });
 
-// ======================
-// Products Loader
-// ======================
-function loadProducts() {
-  console.log("✅ loadProducts() تم استدعاؤها بنجاح");
-
-  const productsGrid = document.querySelector(".products-grid");
-  if (!productsGrid) {
-    console.warn("⚠️ لم يتم العثور على .products-grid في الصفحة");
-    return;
-  }
-
-  const products = [
-    {
-      icon: "📊",
-      title: { en: "Business Process Optimization", ar: "تحسين العمليات التجارية" },
-      description: {
-        en: "Comprehensive analysis and optimization of business processes to improve efficiency and reduce costs.",
-        ar: "تحليل شامل وتحسين العمليات التجارية لزيادة الكفاءة وتقليل التكاليف."
-      },
-      features: [
-        { en: "Process Analysis", ar: "تحليل العمليات" },
-        { en: "Efficiency Improvement", ar: "تحسين الكفاءة" },
-        { en: "Cost Reduction", ar: "تخفيض التكاليف" }
-      ],
-      priceLabel: { en: "Starting from:", ar: "يبدأ من:" },
-      price: "$500",
-      whatsapp: "تحسين العمليات التجارية"
-    },
-    {
-      icon: "📈",
-      title: { en: "Digital Transformation Consulting", ar: "استشارات التحول الرقمي" },
-      description: {
-        en: "Strategic guidance for digital transformation initiatives to modernize your business operations.",
-        ar: "إرشاد استراتيجي لمبادرات التحول الرقمي لتحديث عملياتك التجارية."
-      },
-      features: [
-        { en: "Strategy Development", ar: "تطوير الاستراتيجية" },
-        { en: "Technology Integration", ar: "تكامل التقنيات" },
-        { en: "Change Management", ar: "إدارة التغيير" }
-      ],
-      priceLabel: { en: "Starting from:", ar: "يبدأ من:" },
-      price: "$800",
-      whatsapp: "استشارات التحول الرقمي"
-    },
-    {
-      icon: "📋",
-      title: { en: "Financial Management Templates", ar: "قوالب الإدارة المالية" },
-      description: {
-        en: "Professional Excel templates and tools for financial management and budgeting.",
-        ar: "قوالب إكسل مهنية وأدوات للإدارة المالية وإعداد الميزانيات."
-      },
-      features: [
-        { en: "Excel Templates", ar: "قوالب إكسل" },
-        { en: "Budget Planning", ar: "تخطيط الميزانية" },
-        { en: "Financial Analysis", ar: "التحليل المالي" }
-      ],
-      priceLabel: { en: "Price:", ar: "السعر:" },
-      price: "$50",
-      whatsapp: "قوالب الإدارة المالية"
-    },
-    {
-      icon: "🎯",
-      title: { en: "HR Management System", ar: "نظام إدارة الموارد البشرية" },
-      description: {
-        en: "Complete HR management solution including recruitment, performance, and employee development.",
-        ar: "حل شامل لإدارة الموارد البشرية يشمل التوظيف والأداء وتطوير الموظفين."
-      },
-      features: [
-        { en: "Recruitment", ar: "التوظيف" },
-        { en: "Performance Management", ar: "إدارة الأداء" },
-        { en: "Employee Development", ar: "تطوير الموظفين" }
-      ],
-      priceLabel: { en: "Starting from:", ar: "يبدأ من:" },
-      price: "$300",
-      whatsapp: "نظام إدارة الموارد البشرية"
-    }
-  ];
-
-  productsGrid.innerHTML = products.map(p => `
-    <div class="product-card">
-      <div class="product-icon">${p.icon}</div>
-      <h3 class="product-title" data-en="${p.title.en}" data-ar="${p.title.ar}">${p.title.en}</h3>
-      <p class="product-description" data-en="${p.description.en}" data-ar="${p.description.ar}">${p.description.en}</p>
-      <div class="product-features">
-        ${p.features.map(f => `<span class="feature-tag" data-en="${f.en}" data-ar="${f.ar}">${f.en}</span>`).join("")}
-      </div>
-      <div class="product-price">
-        <span class="price-label" data-en="${p.priceLabel.en}" data-ar="${p.priceLabel.ar}">${p.priceLabel.en}</span>
-        <span class="price-amount">${p.price}</span>
-      </div>
-      <div class="product-actions">
-        <a href="https://wa.me/201020135203?text=مرحباً، أنا مهتم بشراء منتج: ${p.whatsapp}" 
-           class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer">
-          <span class="btn-icon">📱</span>
-          <span class="btn-text" data-en="Contact via WhatsApp" data-ar="تواصل عبر واتساب">Contact via WhatsApp</span>
-          <span class="btn-arrow">→</span>
-        </a>
-      </div>
-    </div>
-  `).join("");
-}
-
-// استدعاء تحميل المنتجات بعد تحميل الصفحة
-document.addEventListener("DOMContentLoaded", () => {
-  loadProducts();
-
-  const notifyBtn = document.getElementById("enable-notifications");
-  if (notifyBtn && "Notification" in window) {
-    notifyBtn.addEventListener("click", () => {
-      Notification.requestPermission().then(permission => {
-        console.log("Notification permission:", permission);
-        if (permission === "granted") {
-          new Notification("✅ Notifications enabled!", {
-            body: "ستصلك إشعارات عند وجود جديد.",
-            icon: "/assets/icon.png" // عدل المسار حسب أيقونتك
-          });
-        }
+// Add service worker for PWA support
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(registration) {
+        console.log('SW registered: ', registration);
+      })
+      .catch(function(registrationError) {
+        console.log('SW registration failed: ', registrationError);
       });
-    });
-  }
-});
-
-
-
-
-// استدعاء تحميل المنتجات بعد تحميل الصفحة
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("📦 جاري تحميل المنتجات...");
-  loadProducts();
-});
-
-// Export for use in other files
-window.GoogleSheetsManager = GoogleSheetsManager;
-window.NavigationManager = NavigationManager;
-window.AnimationManager = AnimationManager;
-window.ContactFormManager = ContactFormManager;
-window.WhatsAppButtonManager = WhatsAppButtonManager;
+  });
+}
