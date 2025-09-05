@@ -478,6 +478,145 @@ class ThemeManager {
   }
 }
 
+// Enhanced Timeline Manager
+class TimelineManager {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    // Enhanced timeline interactions
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px)';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+  }
+}
+
+// Product Image Gallery Manager
+class ProductGalleryManager {
+  constructor() {
+    this.modal = null;
+    this.currentProductId = null;
+    this.init();
+  }
+
+  init() {
+    // Create modal element
+    this.createModal();
+    
+    // Add event listeners to "More" buttons
+    const moreButtons = document.querySelectorAll('.product-more-btn');
+    moreButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const productCard = button.closest('.product-card');
+        const productId = productCard.dataset.productId;
+        this.openGallery(productId);
+      });
+    });
+    
+    // Close modal when clicking on close button or outside the modal content
+    if (this.modal) {
+      this.modal.querySelector('.modal-close').addEventListener('click', () => {
+        this.closeGallery();
+      });
+      
+      this.modal.addEventListener('click', (e) => {
+        if (e.target === this.modal) {
+          this.closeGallery();
+        }
+      });
+    }
+  }
+
+  createModal() {
+    // Create modal HTML
+    const modalHTML = `
+      <div class="product-gallery-modal">
+        <div class="modal-content">
+          <span class="modal-close">&times;</span>
+          <div class="modal-header">
+            <h2 class="modal-title">Product Gallery</h2>
+          </div>
+          <div class="modal-body">
+            <div class="gallery-main-image">
+              <img src="" alt="Product Image" id="main-gallery-image">
+            </div>
+            <div class="gallery-thumbnails">
+              <!-- Thumbnails will be added dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    // Add modal to document
+    const modalElement = document.createElement('div');
+    modalElement.innerHTML = modalHTML;
+    document.body.appendChild(modalElement.firstChild);
+    
+    // Store reference to modal
+    this.modal = document.querySelector('.product-gallery-modal');
+  }
+
+  openGallery(productId) {
+    this.currentProductId = productId;
+    
+    // Set main image based on product
+    const mainImage = document.querySelector(`.product-card[data-product-id="${productId}"] .product-main-image`);
+    const mainGalleryImage = this.modal.querySelector('#main-gallery-image');
+    mainGalleryImage.src = mainImage.src;
+    mainGalleryImage.alt = mainImage.alt;
+    
+    // Set modal title
+    const productTitle = document.querySelector(`.product-card[data-product-id="${productId}"] .product-title`).textContent;
+    this.modal.querySelector('.modal-title').textContent = productTitle;
+    
+    // Generate thumbnails (placeholder images for now)
+    this.generateThumbnails(productId);
+    
+    // Show modal
+    this.modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  generateThumbnails(productId) {
+    const thumbnailsContainer = this.modal.querySelector('.gallery-thumbnails');
+    thumbnailsContainer.innerHTML = ''; // Clear existing thumbnails
+    
+    // Generate 4 placeholder thumbnails
+    for (let i = 1; i <= 4; i++) {
+      const thumbnail = document.createElement('div');
+      thumbnail.className = 'gallery-thumbnail';
+      thumbnail.innerHTML = `
+        <img src="https://placehold.co/150x100/0066cc/ffffff?text=Product+${productId}+Img+${i}" alt="Product Image ${i}">
+      `;
+      
+      // Add click event to change main image
+      thumbnail.addEventListener('click', () => {
+        const mainGalleryImage = this.modal.querySelector('#main-gallery-image');
+        mainGalleryImage.src = thumbnail.querySelector('img').src;
+        mainGalleryImage.alt = thumbnail.querySelector('img').alt;
+      });
+      
+      thumbnailsContainer.appendChild(thumbnail);
+    }
+  }
+
+  closeGallery() {
+    this.modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    this.currentProductId = null;
+  }
+}
+
 // Utility function for throttling
 function throttle(func, limit) {
   let inThrottle;
@@ -500,6 +639,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const languageManager = new LanguageManager();
   const themeManager = new ThemeManager();
   const notificationManager = new NotificationManager();
+  const timelineManager = new TimelineManager();
+  const productGalleryManager = new ProductGalleryManager();
   
   // Enhanced particle system for hero section
   const particlesContainer = document.getElementById('hero-particles');
