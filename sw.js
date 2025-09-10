@@ -1,12 +1,10 @@
-// Service Worker for Tarek Zhran Portfolio
+// Service Worker for Tarek Zhran Portfolio - Enhanced Performance Version
 
-const CACHE_NAME = 'tarek-zhran-portfolio-v1.0';
+const CACHE_NAME = 'tarek-zhran-portfolio-v1.1';
 const urlsToCache = [
   '/',
   '/index.html',
   '/css/style.css',
-  '/css/animations.css',
-  '/css/responsive.css',
   '/js/main.js',
   '/js/translations.js',
   '/manifest.json',
@@ -25,8 +23,32 @@ self.addEventListener('install', event => {
   );
 });
 
-// Fetch event - serve cached content when offline
+// Fetch event - serve cached content when offline with network-first strategy for HTML
 self.addEventListener('fetch', event => {
+  const url = new URL(event.request.url);
+  
+  // Network-first strategy for HTML documents
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          // Cache the response for future offline use
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME)
+            .then(cache => {
+              cache.put(event.request, responseToCache);
+            });
+          return response;
+        })
+        .catch(() => {
+          // Serve from cache if network fails
+          return caches.match(event.request);
+        })
+    );
+    return;
+  }
+  
+  // Cache-first strategy for other assets
   event.respondWith(
     caches.match(event.request)
       .then(response => {

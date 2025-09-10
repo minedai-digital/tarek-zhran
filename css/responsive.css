@@ -51,7 +51,7 @@
 }
 
 /* Large Desktop (1400px and up) */
-@media (min-width: 1400px) {
+@media (min-width: 1400px) and (max-width: 1999px) {
   .container {
     max-width: 1320px;
   }
@@ -96,7 +96,7 @@
 }
 
 /* Desktop (1200px - 1399px) */
-@media (max-width: 1399px) {
+@media (min-width: 1200px) and (max-width: 1399px) {
   .container {
     max-width: 1140px;
   }
@@ -118,6 +118,11 @@
   .photo-frame img {
     width: 320px;
     height: 320px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 
@@ -150,6 +155,11 @@
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 
@@ -185,10 +195,15 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 /* Large Tablet (992px - 1199px) */
-@media (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1199px) {
   .container {
     max-width: 960px;
     padding: 0 2rem;
@@ -258,7 +273,7 @@
 }
 
 /* Tablet (768px - 991px) */
-@media (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .container {
     max-width: 720px;
     padding: 0 1.5rem;
@@ -408,6 +423,12 @@
   .contact-form {
     order: 1;
   }
+  
+  /* Products */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
 }
 
 /* Large Mobile (iPhone Plus, Samsung Galaxy) */
@@ -442,10 +463,15 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 /* Mobile Large (576px - 767px) */
-@media (max-width: 767px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .container {
     max-width: 540px;
     padding: 0 1rem;
@@ -582,6 +608,11 @@
   .btn {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
   
   /* WhatsApp Button */
@@ -986,6 +1017,19 @@
     height: 50px;
     font-size: 1.5rem;
   }
+  
+  /* Enhanced touch targets */
+  .nav-link {
+    padding: 1rem 1.5rem;
+  }
+  
+  .skill-item {
+    padding: 1rem;
+  }
+  
+  .timeline-content {
+    padding: 1.5rem;
+  }
 }
 
 /* iPad Specific Optimizations */
@@ -1051,5 +1095,509 @@
   
   .hero-actions {
     margin-top: 1rem;
+  }
+}
+
+/* Enhanced Mobile Navigation */
+@media (max-width: 767px) {
+  .nav-list {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-link {
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* Improved form layout for mobile */
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: 1rem;
+    padding: 0.875rem;
+  }
+  
+  /* Enhanced product cards for mobile */
+  .product-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .product-image-container {
+    height: 180px;
+  }
+  
+  /* Better timeline for mobile */
+  .timeline::before {
+    left: 15px;
+  }
+  
+  .timeline-item {
+    padding: 1rem 1rem 1rem 3rem;
+    width: 100%;
+  }
+  
+  .timeline-marker {
+    left: 7px;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .timeline-content {
+    padding: 1.25rem;
+  }
+  
+  /* Enhanced skill categories for mobile */
+  .skill-category {
+    padding: 1.25rem;
+  }
+  
+  /* Better footer layout for mobile */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .footer-logo {
+    text-align: center;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+/* Enhanced breakpoint for small tablets and large phones */
+@media (min-width: 600px) and (max-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+  
+  .hero-headline {
+    font-size: 2.3rem;
+  }
+  
+  .about-container {
+    text-align: center;
+  }
+  
+  .photo-frame {
+    width: 230px;
+    height: 230px;
+    margin: 0 auto;
+  }
+  
+  .photo-frame img {
+    width: 230px;
+    height: 230px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-marker {
+    left: 12px;
+  }
+}
+
+/* Ultra-wide screen support */
+@media (min-width: 2560px) {
+  .container {
+    max-width: 2000px;
+  }
+  
+  .hero-headline {
+    font-size: 6rem;
+  }
+  
+  .hero-subheadline {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 5rem;
+  }
+  
+  .photo-frame {
+    width: 500px;
+    height: 500px;
+  }
+  
+  .photo-frame img {
+    width: 500px;
+    height: 500px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Enhanced responsive grid system */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1500px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Better support for foldable devices */
+@media (min-width: 800px) and (max-width: 1200px) and (orientation: landscape) {
+  .hero-headline {
+    font-size: 2.8rem;
+  }
+  
+  .about-container {
+    grid-template-columns: 1fr 1.2fr;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Enhanced responsive typography */
+@media (max-width: 360px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .hero-headline {
+    font-size: 1.6rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Improved responsive images */
+@media (max-width: 480px) {
+  .product-image-container {
+    height: 150px;
+  }
+  
+  .gallery-main-image {
+    height: 250px;
+  }
+  
+  .gallery-thumbnail {
+    height: 70px;
+  }
+}
+
+/* Enhanced responsive forms */
+@media (max-width: 400px) {
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .submit-btn {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Better responsive footer */
+@media (max-width: 480px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .footer-links ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Enhanced responsive navigation */
+@media (max-width: 360px) {
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.625rem 1rem;
+  }
+  
+  .hamburger-line {
+    width: 20px;
+  }
+}
+
+/* Improved responsive timeline */
+@media (max-width: 400px) {
+  .timeline-item {
+    padding: 0.875rem 0.875rem 0.875rem 2.5rem;
+  }
+  
+  .timeline-marker {
+    left: 10px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .timeline-content {
+    padding: 1rem;
+  }
+  
+  .timeline-title {
+    font-size: 1rem;
+  }
+  
+  .timeline-organization {
+    font-size: 0.875rem;
+  }
+  
+  .timeline-date {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* Enhanced responsive skills section */
+@media (max-width: 420px) {
+  .skill-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .skill-level {
+    font-size: 0.75rem;
+  }
+  
+  .skill-bar {
+    height: 8px;
+  }
+}
+
+/* Better responsive product cards */
+@media (max-width: 450px) {
+  .product-card {
+    padding: 1rem;
+  }
+  
+  .product-icon {
+    font-size: 2.5rem;
+  }
+  
+  .product-title {
+    font-size: 1.1rem;
+  }
+  
+  .product-description {
+    font-size: 0.875rem;
+  }
+  
+  .product-price {
+    font-size: 1.5rem;
+  }
+}
+
+/* Enhanced responsive hero section */
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 0 2rem;
+  }
+  
+  .hero-badge {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .badge-text {
+    font-size: 0.8rem;
+  }
+  
+  .hero-stats {
+    gap: 0.75rem;
+  }
+  
+  .stat-item {
+    padding: 0.75rem;
+  }
+  
+  .stat-icon {
+    font-size: 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.75rem;
+  }
+}
+
+/* Better responsive about section */
+@media (max-width: 400px) {
+  .about-container {
+    gap: 1.25rem;
+  }
+  
+  .photo-frame {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .photo-frame img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .bio {
+    font-size: 0.875rem;
+  }
+}
+
+/* Enhanced responsive contact section */
+@media (max-width: 480px) {
+  .contact-item {
+    padding: 1rem;
+  }
+  
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+  
+  .contact-details h3 {
+    font-size: 0.875rem;
+  }
+  
+  .contact-details p,
+  .contact-details a {
+    font-size: 0.8rem;
+  }
+}
+
+/* Better responsive social links */
+@media (max-width: 400px) {
+  .social-links {
+    gap: 0.5rem;
+  }
+  
+  .social-links a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Enhanced responsive back to top button */
+@media (max-width: 480px) {
+  .back-to-top {
+    width: 35px;
+    height: 35px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Better responsive WhatsApp button */
+@media (max-width: 480px) {
+  .whatsapp-float {
+    width: 35px;
+    height: 35px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Enhanced responsive notifications */
+@media (max-width: 480px) {
+  .notification {
+    max-width: 300px;
+    padding: 0.75rem;
+  }
+  
+  .notification-title {
+    font-size: 0.875rem;
+  }
+  
+  .notification-message {
+    font-size: 0.75rem;
+  }
+}
+
+/* Better responsive loading screen */
+@media (max-width: 480px) {
+  .loading-logo {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1rem;
+  }
+  
+  .loading-text {
+    font-size: 0.875rem;
+  }
+}
+
+/* Enhanced responsive scroll indicator */
+@media (max-width: 480px) {
+  .scroll-indicator {
+    bottom: 30px;
+  }
+  
+  .scroll-arrow {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .scroll-text {
+    font-size: 0.75rem;
   }
 }

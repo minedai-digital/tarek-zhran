@@ -1,5 +1,13 @@
-// Translations for Tarek Zhran Portfolio
+// =============================================================================
+// TRANSLATIONS MODULE
+// =============================================================================
+// This module handles all internationalization (i18n) functionality for the 
+// Tarek Zhran Portfolio website, supporting both English and Arabic languages.
 
+/**
+ * Translation dictionary containing all text content for both supported languages
+ * @namespace translations
+ */
 const translations = {
   // English translations
   en: {
@@ -9,6 +17,7 @@ const translations = {
     'experience': 'Experience',
     'education': 'Education',
     'skills': 'Skills',
+    'products': 'Products',
     'contact': 'Contact',
     
     // Hero Section
@@ -34,11 +43,35 @@ const translations = {
     'careerJourney': 'Career Journey',
     'professionalExperience': 'Professional Experience',
     'experienceSubtitle': 'Explore my professional background and key achievements.',
+    'businessDevelopmentManager': 'Business Development Manager',
+    'healthTechSolutions': 'HealthTech Solutions',
+    'businessDevelopmentManagerDesc': 'Leading business development initiatives in the healthcare technology sector, focusing on digital transformation and operational excellence.',
+    'digitalTransformationLead': 'Digital Transformation Lead',
+    'mediCareGroup': 'MediCare Group',
+    'digitalTransformationLeadDesc': 'Spearheaded digital transformation initiatives across multiple healthcare facilities, improving efficiency and patient outcomes.',
+    'operationsManager': 'Operations Manager',
+    'financeFirstCorp': 'FinanceFirst Corporation',
+    'operationsManagerDesc': 'Managed financial operations and process optimization, resulting in 25% cost reduction and improved service delivery.',
+    'businessAnalyst': 'Business Analyst',
+    'globalSolutionsLtd': 'Global Solutions Ltd',
+    'businessAnalystDesc': 'Analyzed business processes and recommended improvements that increased operational efficiency by 30%.',
     
     // Education Section
     'academicBackground': 'Academic Background',
     'educationCertifications': 'Education & Certifications',
     'educationSubtitle': 'My educational qualifications and professional certifications.',
+    'mbaBusinessAdmin': 'MBA - Business Administration',
+    'cairoUniversity': 'Cairo University',
+    'mbaBusinessAdminDesc': 'Specialized in strategic management and digital business transformation.',
+    'bscFinancialManagement': 'B.Sc. - Financial Management',
+    'ainShamsUniversity': 'Ain Shams University',
+    'bscFinancialManagementDesc': 'Graduated with honors, focusing on financial analysis and risk management.',
+    'digitalTransformationCert': 'Digital Transformation Certificate',
+    'mitProfessionalEducation': 'MIT Professional Education',
+    'digitalTransformationCertDesc': 'Advanced certification in digital business strategies and transformation frameworks.',
+    'pmpCertification': 'Project Management Professional (PMP)',
+    'pmi': 'PMI',
+    'pmpCertificationDesc': 'Certified project management professional with expertise in agile methodologies.',
     
     // Skills Section
     'expertise': 'Expertise',
@@ -61,12 +94,37 @@ const translations = {
     'budgetManagement': 'Budget Management',
     'riskAssessment': 'Risk Assessment',
     
+    // Products Section
+    'myProducts': 'My Products',
+    'featuredProducts': 'Featured Products',
+    'productsSubtitle': 'Explore my professional products and services.',
+    'businessStrategyConsulting': 'Business Strategy Consulting',
+    'businessStrategyConsultingDesc': 'Comprehensive business strategy development and implementation services.',
+    'digitalTransformationPackage': 'Digital Transformation Package',
+    'digitalTransformationPackageDesc': 'End-to-end digital transformation solutions for businesses.',
+    'healthcareManagementSystem': 'Healthcare Management System',
+    'healthcareManagementSystemDesc': 'Specialized healthcare management solutions for medical facilities.',
+    'financialOptimizationService': 'Financial Optimization Service',
+    'financialOptimizationServiceDesc': 'Financial analysis and optimization services for businesses.',
+    'marketResearchAnalysis': 'Market Research & Analysis',
+    'marketResearchAnalysisDesc': 'Comprehensive market research and competitive analysis services.',
+    'teamBuildingLeadership': 'Team Building & Leadership Training',
+    'teamBuildingLeadershipDesc': 'Professional team building and leadership development programs.',
+    'more': 'More',
+    'contactViaWhatsApp': 'Contact via WhatsApp',
+    'specifications': 'Specifications',
+    'keyFeatures': 'Key Features',
+    'description': 'Description',
+    'price': 'Price',
+    'productDetails': 'Product Details',
+    
     // Contact Section
     'getInTouch': 'Get In Touch',
     'contactMe': 'Contact Me',
     'contactSubtitle': 'Have a project in mind or want to discuss opportunities? Reach out!',
     'email': 'Email',
     'phone': 'Phone',
+    'whatsapp': 'WhatsApp',
     'location': 'Location',
     'connect': 'Connect',
     'name': 'Name',
@@ -103,6 +161,7 @@ const translations = {
     'experience': 'الخبرة',
     'education': 'التعليم',
     'skills': 'المهارات',
+    'products': 'المنتجات',
     'contact': 'تواصل معي',
     
     // Hero Section
@@ -128,11 +187,35 @@ const translations = {
     'careerJourney': 'المسيرة المهنية',
     'professionalExperience': 'الخبرة المهنية',
     'experienceSubtitle': 'استكشف خلفيتي المهنية وإنجازاتي الرئيسية.',
+    'businessDevelopmentManager': 'مدير تطوير الأعمال',
+    'healthTechSolutions': 'حلول التقنية الصحية',
+    'businessDevelopmentManagerDesc': 'قيادة مبادرات تطوير الأعمال في قطاع تقنية الرعاية الصحية، مع التركيز على التحول الرقمي والتميز التشغيلي.',
+    'digitalTransformationLead': 'قائد التحول الرقمي',
+    'mediCareGroup': 'مجموعة ميديكير',
+    'digitalTransformationLeadDesc': 'قيادي مبادرات التحول الرقمي عبر عدة مرافق صحية، مما حسّن الكفاءة ونتائج المرضى.',
+    'operationsManager': 'مدير العمليات',
+    'financeFirstCorp': 'شركة فايننس فيرست',
+    'operationsManagerDesc': 'إدارة العمليات المالية وتحسين العمليات، مما أدى إلى تقليل التكاليف بنسبة 25% وتحسين تقديم الخدمات.',
+    'businessAnalyst': 'محلل أعمال',
+    'globalSolutionsLtd': 'حلول عالمية المحدودة',
+    'businessAnalystDesc': 'تحليل العمليات التجارية وإجراء توصيات للتحسينات التي زادت الكفاءة التشغيلية بنسبة 30%.',
     
     // Education Section
     'academicBackground': 'الخلفية الأكاديمية',
     'educationCertifications': 'التعليم والشهادات',
     'educationSubtitle': 'مؤهلاتي التعليمية والشهادات المهنية.',
+    'mbaBusinessAdmin': 'مصنف ماجستير في إدارة الأعمال',
+    'cairoUniversity': 'جامعة القاهرة',
+    'mbaBusinessAdminDesc': 'متخصص في الإدارة الاستراتيجية والتحول الرقمي للأعمال.',
+    'bscFinancialManagement': 'بكالوريوس في إدارة الماليات',
+    'ainShamsUniversity': 'جامعة عين شمس',
+    'bscFinancialManagementDesc': 'تخرجت بمرتبة الشرف، مع التركيز على التحليل المالي وإدارة المخاطر.',
+    'digitalTransformationCert': 'شهادة التحول الرقمي',
+    'mitProfessionalEducation': 'تعليم MIT المهني',
+    'digitalTransformationCertDesc': 'شهادة متقدمة في استراتيجيات الأعمال الرقمية وإطارات التحول.',
+    'pmpCertification': 'محترف إدارة المشاريع (PMP)',
+    'pmi': 'معهد إدارة المشاريع',
+    'pmpCertificationDesc': 'محترف معتمد في إدارة المشاريع مع خبرة في منهجيات أجايل.',
     
     // Skills Section
     'expertise': 'الخبرة',
@@ -155,12 +238,37 @@ const translations = {
     'budgetManagement': 'إدارة الميزانية',
     'riskAssessment': 'تقييم المخاطر',
     
+    // Products Section
+    'myProducts': 'منتجاتي',
+    'featuredProducts': 'المنتجات المميزة',
+    'productsSubtitle': 'استكشف منتجاتي وخدماتي المهنية.',
+    'businessStrategyConsulting': 'استشارات استراتيجية الأعمال',
+    'businessStrategyConsultingDesc': 'خدمات شاملة لتطوير وتنفيذ استراتيجيات الأعمال.',
+    'digitalTransformationPackage': 'حزمة التحول الرقمي',
+    'digitalTransformationPackageDesc': 'حلول التحول الرقمي الشاملة للأعمال.',
+    'healthcareManagementSystem': 'نظام إدارة الرعاية الصحية',
+    'healthcareManagementSystemDesc': 'حلول إدارة الرعاية الصحية المتخصصة للمرافق الطبية.',
+    'financialOptimizationService': 'خدمة تحسين المالية',
+    'financialOptimizationServiceDesc': 'خدمات التحليل والتحسين المالي للأعمال.',
+    'marketResearchAnalysis': 'بحث وتحليل السوق',
+    'marketResearchAnalysisDesc': 'خدمات بحث السوق وتحليل المنافسة الشاملة.',
+    'teamBuildingLeadership': 'بناء الفريق وتدريب القيادة',
+    'teamBuildingLeadershipDesc': 'برامج بناء الفريق وتطوير القيادة المهنية.',
+    'more': 'المزيد',
+    'contactViaWhatsApp': 'تواصل عبر الواتساب',
+    'specifications': 'المواصفات',
+    'keyFeatures': 'المميزات الرئيسية',
+    'description': 'الوصف',
+    'price': 'السعر',
+    'productDetails': 'تفاصيل المنتج',
+    
     // Contact Section
     'getInTouch': 'تواصل معي',
     'contactMe': 'تواصل معي',
     'contactSubtitle': 'هل لديك مشروع في الاعتبار أو ترغب في مناقشة الفرص؟ تواصل معي!',
     'email': 'البريد الإلكتروني',
     'phone': 'الهاتف',
+    'whatsapp': 'واتساب',
     'location': 'الموقع',
     'connect': 'تواصل',
     'name': 'الاسم',
@@ -190,20 +298,34 @@ const translations = {
   }
 };
 
-// Function to get translation
+/**
+ * Retrieves a translated string for a given key and language
+ * @param {string} key - The translation key to look up
+ * @param {string} [lang='en'] - The language code ('en' or 'ar')
+ * @returns {string} The translated string or the key if not found
+ * @example
+ * getTranslation('home', 'en'); // Returns 'Home'
+ * getTranslation('home', 'ar'); // Returns 'الرئيسية'
+ */
 function getTranslation(key, lang = 'en') {
   return translations[lang][key] || key;
 }
 
-// Function to translate all elements with data-i18n attributes
+/**
+ * Translates all elements with data-i18n attributes on the page
+ * @param {string} [lang='en'] - The language code ('en' or 'ar')
+ * @example
+ * translatePage('ar'); // Translates all elements to Arabic
+ */
 function translatePage(lang = 'en') {
+  // Translate text content elements
   const elements = document.querySelectorAll('[data-i18n]');
   elements.forEach(element => {
     const key = element.getAttribute('data-i18n');
     element.textContent = getTranslation(key, lang);
   });
   
-  // Translate placeholders
+  // Translate placeholder texts for form inputs
   const inputs = document.querySelectorAll('[data-i18n-placeholder]');
   inputs.forEach(input => {
     const key = input.getAttribute('data-i18n-placeholder');
@@ -211,7 +333,7 @@ function translatePage(lang = 'en') {
   });
 }
 
-// Export for use in other modules
+// Export for use in other modules (Node.js environment)
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { translations, getTranslation, translatePage };
 }
