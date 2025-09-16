@@ -1709,7 +1709,7 @@
                 emailLabel: 'Your Email',
                 messageLabel: 'Your Message',
                 sendMessage: 'Send Message',
-                btnAr: 'AR',
+                btnAr: 'ع',
                 btnEn: 'EN',
                 // Experience section translations
                 expDate1: '2022 - Present',
@@ -1788,7 +1788,7 @@
                 emailLabel: 'بريدك الإلكتروني',
                 messageLabel: 'رسالتك',
                 sendMessage: 'إرسال الرسالة',
-                btnAr: 'عر',
+                btnAr: 'ع',
                 btnEn: 'EN',
                 // Experience section translations
                 expDate1: '2022 - الآن',
@@ -2070,7 +2070,8 @@
             }
             
             // Update language toggle button
-            langToggle.textContent = currentLang === 'en' ? t.btnAr : t.btnEn;
+            // Show 'ع' when in English mode, 'EN' when in Arabic mode
+            langToggle.textContent = currentLang === 'en' ? 'ع' : 'EN';
             
             // Update HTML lang attribute
             document.documentElement.lang = currentLang;
