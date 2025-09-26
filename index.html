@@ -711,6 +711,117 @@
             to { width: var(--skill-percent); }
         }
 
+/* CV Section */
+        .CV {
+            padding: 100px var(--spacing-xl);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.1));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(248, 250, 252, 0.7);
+        }
+
+        .CV-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .CV-image {
+            position: relative;
+            animation: float-slow 6s ease-in-out infinite;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .CV-image img {
+            width: 100%;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .CV-text h3 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--accent);
+        }
+
+        .CV-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(248, 250, 252, 0.8);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(248, 250, 252, 0.7);
+            margin-top: var(--spacing-sm);
+        }
+
+
+
+
+
+
         /* Products Section */
         .products {
             padding: 100px var(--spacing-xl);
@@ -924,10 +1035,32 @@
             transition: var(--transition);
         }
 
+        .CV-btn {
+            width: 100%;
+            padding: var(--spacing-sm);
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+
+
         .form-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
         }
+        .CV-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
+        }
+
+
+
 
         /* Footer */
         footer {
@@ -1039,7 +1172,12 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: var(--spacing-md);
             }
-            
+            .CV-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+
+
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: var(--spacing-md);
@@ -1125,6 +1263,10 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+            .CV-grid {
+                grid-template-columns: 1fr;
+            }
+
 
             .products-grid {
                 grid-template-columns: 1fr;
@@ -1157,6 +1299,11 @@
                 gap: var(--spacing-xl);
             }
             
+            .CV-grid {
+                gap: var(--spacing-xl);
+            }
+
+
             .products-grid {
                 gap: var(--spacing-xl);
             }
@@ -1231,6 +1378,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#CV" class="nav-link">CV</a></li>
                 <li><a href="#products" class="nav-link">Products</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -1269,7 +1417,7 @@
             </div>
             <div class="about-content fade-in">
                 <div class="about-image">
-                    <img src="https://via.placeholder.com/500x600/667eea/ffffff?text=Tarek+Zhran" alt="Tarek Zhran">
+                    <img src="images/profile.jpg" alt="Tarek Zhran">
                 </div>
                 <div class="about-text">
                     <h3>Tarek Zhran</h3>
@@ -1420,6 +1568,27 @@
         </div>
     </section>
 
+<!-- CV Section -->
+    <section class="CV" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">CV</h2>
+                <p class="section-subtitle">MY_CV</p>
+            </div>
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    <img src="images/pro.jpg" alt="Tarek Zhran">
+                    <button type="submit" class="CV-btn">MY_CV</button>
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+
     <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
@@ -1531,7 +1700,7 @@
             <a href="https://twitter.com/tarekzhran" class="social-link">tw</a>
             <a href="https://facebook.com/tarekzhran" class="social-link">fb</a>
         </div>
-        <p class="footer-text">© 2024 Tarek Zhran. All rights reserved.</p>
+        <p class="footer-text">© 2025 Tarek Zhran. All rights reserved.</p>
     </footer>
 
     <!-- Scroll to Top Button -->
